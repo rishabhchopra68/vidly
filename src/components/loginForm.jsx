@@ -25,7 +25,7 @@ class LoginForm extends Form {
       // after user is logged in
       const { state } = this.props.location;
 
-      window.location = state ? state.from.pathname : "/";
+      window.location = state ? state.from.pathname : "/"; // to return to page user visited before they logged in
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
@@ -37,6 +37,7 @@ class LoginForm extends Form {
 
   render() {
     if (auth.getCurrentUser()) {
+      // if user already logged in
       return <Redirect to="/" />;
     }
     return (

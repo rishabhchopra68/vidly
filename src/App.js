@@ -22,7 +22,7 @@ import "react-toastify/dist/ReactToastify.css";
 class App extends Component {
   state = {};
   componentDidMount() {
-    const user = auth.getCurrentUser();
+    const user = auth.getCurrentUser();   // getting current user
 
     this.setState({ user });
   }
@@ -31,7 +31,8 @@ class App extends Component {
     return (
       <div>
         <ToastContainer />
-        <Navbar user={user} />
+        {/* passing state to navbar component */}
+        <Navbar user={user} />    
         <main className="container">
           <Switch>
             {/* <Route path="/movies/new" component={NewMovieForm} /> */}
